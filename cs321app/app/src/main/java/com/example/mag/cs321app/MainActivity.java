@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText mvalueField;
     private Button maddBtn;
+    private EditText mKeyValue;
 
     private Firebase mRef;
 
@@ -26,14 +27,19 @@ public class MainActivity extends AppCompatActivity {
 
         mvalueField = (EditText) findViewById(R.id.valueField);
         maddBtn = (Button) findViewById(R.id.addBtn);
+        mKeyValue = (EditText) findViewById(R.id.keyValue);
 
         maddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String value = mvalueField.getText().toString();
-                Firebase mRefChild = mRef.child("Name");
-                mRefChild.setValue(value);
+                String key = mKeyValue.getText().toString();
+                Firebase mRefChild = mRef.child(key);
+
+                mRef.setValue(value);
+
+
             }
         });
     }
