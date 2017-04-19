@@ -3,4 +3,6 @@
     <string name="key">Key</string>
     <string name="add_value">Add Value</string>
     <string name="value">Value</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_create_account">CreateAccountActivity</string>
 </resources>

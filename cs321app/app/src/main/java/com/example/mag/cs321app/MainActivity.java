@@ -1,5 +1,6 @@
 package com.example.mag.cs321app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mvalueField;
     private Button maddBtn;
     private EditText mKeyValue;
+    private Button msignUpBtn;
 
     private Firebase mRef;
 
@@ -33,14 +35,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String value = mvalueField.getText().toString();
-                String key = mKeyValue.getText().toString();
-                Firebase mRefChild = mRef.child(key);
+                String password = mvalueField.getText().toString(); //password (value in tutorial)
+                String username = mKeyValue.getText().toString(); //username (key in tutorial)
+                Firebase mRefChild = mRef.child(username);
 
-                mRef.setValue(value);
+                mRef.setValue(password);
 
 
             }
         });
+
+        msignUpBtn = (Button) findViewById(R.id.signUpBtn);
+
+        msignUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CreateAccountActivity.class));
+            }
+            //do something when sign up button is clicked
+
+        });
+
     }
+
 }
